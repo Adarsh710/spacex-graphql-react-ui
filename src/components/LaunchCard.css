@@ -1,0 +1,89 @@
+.grid-container {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.card {
+  min-width: 350px;
+  max-width: 400px;
+  height: 100%;
+  margin: auto;
+  border-radius: 6px !important;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2) !important;
+}
+
+.card-CTA:hover {
+  background-color: #04155d14 !important;
+}
+
+.card-CTA {
+  height: 100%;
+}
+
+.card-image {
+  height: 150px;
+  margin: auto;
+  padding-bottom: 20px;
+  object-fit: contain !important;
+}
+
+.card-image.strech {
+  object-fit: fill !important;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.details {
+  font-size: 0.7rem !important;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.status-chip-container {
+  padding-top: 8px !important;
+}
+
+.status-chip {
+  color: #000 !important;
+  height: 20px !important;
+  float: right;
+}
+
+.status-chip.success {
+  background-color: rgba(17, 243, 17, 0.363);
+}
+
+.status-chip.success.MuiChip-outlinedPrimary {
+  border-color: rgb(6, 196, 6);
+}
+
+.status-chip.upcoming {
+  background-color: rgba(243, 228, 17, 0.445);
+}
+
+.status-chip.upcoming.MuiChip-outlinedPrimary {
+  border-color: rgb(167, 156, 6);
+}
+
+.status-chip.fail {
+  background-color: rgba(243, 17, 17, 0.445);
+}
+
+.status-chip.fail.MuiChip-outlinedPrimary {
+  border-color: rgb(184, 8, 8);
+}
+
+.status-chip span {
+  padding-left: 8px;
+  padding-right: 8px;
+}
