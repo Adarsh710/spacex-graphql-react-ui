@@ -1,0 +1,35 @@
+.hero-section {
+  height: 100%;
+  width: calc(100% + 20px);
+  margin: -10px 0 0 -10px;
+}
+
+.hero-section .hero-image {
+  width: 100%;
+  max-height: inherit;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1560px) {
+  .hero-section {
+    max-height: 800px;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  .hero-section {
+    max-height: 450px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    max-height: 375px;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .hero-section {
+    max-height: 320px;
+  }
+}

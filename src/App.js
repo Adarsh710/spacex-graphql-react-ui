@@ -1,10 +1,11 @@
 import './App.css';
-// import { Button } from '@material-ui/core';
 import RenderLaunchPast from './quries/LaunchsPast'
+import HeroSection from './components/HeroSection/HeroSection';
 
 function App() {
   return (
     <div className="App">
+      <HeroSection></HeroSection>
       <RenderLaunchPast></RenderLaunchPast>
     </div>
   );

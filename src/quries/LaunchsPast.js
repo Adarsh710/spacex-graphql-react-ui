@@ -1,10 +1,10 @@
 import React from 'react'
 import { useQuery, gql } from "@apollo/client";
-import LaunchCard from '../components/LaunchCard';
+import LaunchCard from '../components/LaunchCard/LaunchCard';
 
 const LaunchsPastQuery = gql`
 {
-  launchesPast(limit: 10) {
+  launchesPast(limit: 50) {
     mission_name
     launch_site {
       site_name_long
