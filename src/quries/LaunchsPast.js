@@ -4,7 +4,7 @@ import LaunchCard from '../components/LaunchCard/LaunchCard';
 
 const LaunchsPastQuery = gql`
 {
-  launchesPast(limit: 50) {
+  launchesPast(limit: 5) {
     mission_name
     launch_site {
       site_name_long

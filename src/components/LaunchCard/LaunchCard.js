@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button, Grid, Chip } from '@material-ui/core';
+import SimpleDialog from '../Dialog/Dialog'
 import './LaunchCard.css'
-import DoneIcon from '@material-ui/icons/Done'
 
 export default function LaunchCard(props) {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [lData, setLData] = useState({})
+  const openDialog = (launchData) => {
+    setLData(launchData);
+    setDialogOpen(true);
+  }
+
+  const handleCLose = () => {
+    setDialogOpen(false);
+    setLData({});
+  }
+
   return (
+    <>
     <Grid
       className="grid-container"
       container
@@ -14,7 +27,7 @@ export default function LaunchCard(props) {
       {
         props.launches.map((launch) => (
           <Grid item sm={12} md={6} lg={4} xl={3} key={launch.id}>
-            <Card className='card'>
+            <Card className='card' onClick={() => openDialog(launch)}>
               <CardActionArea className="card-CTA">
                 <CardMedia
                   component="img"
@@ -43,5 +56,7 @@ export default function LaunchCard(props) {
         ))
       }
     </Grid>
+    <SimpleDialog open={dialogOpen} onClose={handleCLose} launchData={lData}></SimpleDialog>
+    </>
   )
 }
