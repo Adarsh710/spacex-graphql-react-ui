@@ -39,7 +39,7 @@ export default function LaunchCard(props) {
                 <CardContent>
                   <Grid item xs={12} container spacing={1}>
                     <Grid item xs={9}>
-                      <Typography variant="h6" className="text-ellipsis" component="h3">
+                      <Typography variant="h6" className="text-ellipsis" component="h3" title={launch.mission_name}>
                         {launch.mission_name}
                       </Typography>
                       <Typography gutterBottom className="text-ellipsis" component="h3">{launch.rocket.rocket_name} Rocket</Typography>

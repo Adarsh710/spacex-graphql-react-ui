@@ -4,25 +4,30 @@ import LaunchCard from '../components/LaunchCard/LaunchCard';
 
 const LaunchsPastQuery = gql`
 {
-  launchesPast(limit: 5) {
-    mission_name
-    launch_site {
-      site_name_long
-      site_name
+  launchesPastResult(limit: 10) {
+    result {
+      totalCount
     }
-    links {
-      article_link
-      mission_patch
-      mission_patch_small
-      video_link
+    data {
+      mission_name
+      launch_site {
+        site_name_long
+        site_name
+      }
+      links {
+        article_link
+        mission_patch
+        mission_patch_small
+        video_link
+      }
+      rocket {
+        rocket_name
+      }
+      details
+      launch_date_utc
+      launch_success
+      id
     }
-    rocket {
-      rocket_name
-    }
-    details
-    launch_date_utc
-    launch_success
-    id
   }
 }`
 
@@ -34,7 +39,7 @@ export default function RenderLaunchPast() {
 
   return (
     <>
-      <LaunchCard launches={data.launchesPast}></LaunchCard>
+      <LaunchCard launches={data.launchesPastResult.data}></LaunchCard>
     </>
   );
 }
