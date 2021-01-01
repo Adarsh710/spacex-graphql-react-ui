@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
   uri: "https://api.spacex.land/graphql",
@@ -11,11 +11,9 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
+  <ApolloProvider client={client}>
     <App />
-    </ApolloProvider>
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

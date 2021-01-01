@@ -1,0 +1,20 @@
+.launch-sub-title {
+  font-size: 0.9rem !important;
+  vertical-align: text-bottom;
+}
+
+.closeButton {
+  position: absolute !important;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.embed-link {
+  width: 100%;
+  max-height: 600px;
+  min-height: 350px;
+}
+
+#launch-description {
+  margin-top: 20px;
+}
