@@ -26,7 +26,7 @@ export default function LaunchCard(props) {
       spacing={3}>
       {
         props.launches.map((launch) => (
-          <Grid item sm={12} md={6} lg={4} xl={3} key={launch.id}>
+          <Grid item sm={12} md={6} lg={4} xl={3} key={launch.id} className="grid-item">
             <Card className='card' onClick={() => openDialog(launch)}>
               <CardActionArea className="card-CTA">
                 <CardMedia
