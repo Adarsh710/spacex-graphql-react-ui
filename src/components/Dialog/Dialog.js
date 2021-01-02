@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Dialog,
@@ -7,6 +7,7 @@ import {
   DialogContentText,
   Slide,
   IconButton,
+  LinearProgress
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import './Dialog.css';
@@ -16,6 +17,7 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 
 function SimpleDialog(props) {
+  const [isIFrameLoaded, setIsIFrameLoaded] = useState(false)
   const { open, onClose, launchData } = props;
   const sanatizeYoutubeLink = (link) => {
     if (link) {
@@ -30,8 +32,15 @@ function SimpleDialog(props) {
   const videoLink = sanatizeYoutubeLink(launchData.links?.video_link);
 
   const handleClose = () => {
+    setIsIFrameLoaded(false)
     onClose();
   };
+
+  const handleiFrameLoad = () => {
+    console.log('loaded '+ isIFrameLoaded)
+    setIsIFrameLoaded(true)
+  }
+
   return (
     <div>
       <Dialog
@@ -58,10 +67,11 @@ function SimpleDialog(props) {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
+        <DialogContent dividers className="dialog-content">
           {videoLink && (
             <iframe
               src={videoLink}
+              onLoad={() => handleiFrameLoad()}
               frameBorder="0"
               className="embed-link"
               allow="autoplay; encrypted-media"
@@ -69,6 +79,13 @@ function SimpleDialog(props) {
               title="video"
             />
           )}
+          {
+            !isIFrameLoaded && videoLink && (
+              <div className="loader">
+                <LinearProgress />
+              </div>
+            )
+          }
           <DialogContentText id="launch-description">
             {launchData.details
               ? launchData.details
