@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery, gql } from "@apollo/client";
 import LaunchCard from '../components/LaunchCard/LaunchCard';
+import RocketLoader from "../loaders/RocketLoader";
 
 const LaunchsPastQuery = gql`
 {
@@ -31,15 +32,16 @@ const LaunchsPastQuery = gql`
   }
 }`
 
-export default function RenderLaunchPast() {
+export default function LaunchesPastResult(props) {
   const { loading, error, data } = useQuery(LaunchsPastQuery);
+  const { value, index } = props;
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <RocketLoader />;
   if (error) return <p>Error :(</p>;
 
   return (
     <>
-      <LaunchCard launches={data.launchesPastResult.data}></LaunchCard>
+      {value === index && (<LaunchCard launches={data.launchesPastResult.data}></LaunchCard>)}
     </>
   );
 }

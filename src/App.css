@@ -1,3 +1,26 @@
 .App {
   margin: 10px;
 }
+
+.tabs-container {
+  margin: 0 -10px;
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  box-shadow: 0 2px 20px rgba(166, 173, 201, 0.2) !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(20px);
+}
+
+.tabs-wrapper .MuiTabs-flexContainer {
+  justify-content: space-evenly;
+}
+
+.MuiTab-textColorPrimary.full-width-tab {
+  color: #000;
+  min-height: 56px;
+}
+
+.swipeable-content {
+  margin-top: 20px;
+}
