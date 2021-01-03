@@ -1,12 +1,12 @@
 import './App.css';
 import { useState } from 'react';
-import LaunchesPastResult from './quries/LaunchesPastResult';
-import LaunchesUpcomingResult from './quries/UpcomingLaunches';
+import LaunchesPastResult from './queries/LaunchesPastResult';
+import LaunchesUpcomingResult from './queries/UpcomingLaunches';
 import HeroSection from './components/HeroSection/HeroSection';
-import { Paper, Tabs, Tab, Typography, Box } from '@material-ui/core';
+import RocketsResult from './queries/RocketsResult'
 import SwipeableViews from 'react-swipeable-views';
+import { Paper, Tabs, Tab } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
 
 function App() {
   const [value, setValue] = useState(0);
@@ -41,30 +41,8 @@ function App() {
       >
         <LaunchesPastResult value={value} index={0} dir={theme.direction} />
         <LaunchesUpcomingResult value={value} index={1} dir={theme.direction} />
-        <TabPanel value={value} index={2} dir={theme.direction}>
-          Comming soon
-        </TabPanel>
+        <RocketsResult value={value} index={2} dir={theme.direction} />
       </SwipeableViews>
-    </div>
-  );
-}
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
     </div>
   );
 }
@@ -76,11 +54,5 @@ function a11yProps(index) {
     'className': `full-width-tab`
   };
 }
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
 
 export default App;
