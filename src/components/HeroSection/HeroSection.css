@@ -10,9 +10,15 @@
   object-fit: cover;
 }
 
-@media screen and (min-width: 1560px) {
+@media screen and (min-width: 1760px) {
   .hero-section {
     max-height: 800px;
+  }
+}
+
+@media screen and (max-width: 1760px) {
+  .hero-section {
+    max-height: 600px;
   }
 }
 
