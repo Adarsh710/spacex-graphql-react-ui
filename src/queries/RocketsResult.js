@@ -54,7 +54,7 @@ export default function RocketsResult(props) {
   return (
     <>
       {value === index && (<div className="rockets-container">
-        {JSON.stringify(data.rocketsResult)}
+        Coming soon...
       </div>)}
     </>
   );
