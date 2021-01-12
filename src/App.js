@@ -3,6 +3,7 @@ import { useState } from 'react';
 import LaunchesPastResult from './queries/LaunchesPastResult';
 import LaunchesUpcomingResult from './queries/UpcomingLaunches';
 import HeroSection from './components/HeroSection/HeroSection';
+import Footer from './components/Footer/Footer';
 import RocketsResult from './queries/RocketsResult'
 import SwipeableViews from 'react-swipeable-views';
 import { Paper, Tabs, Tab } from '@material-ui/core';
@@ -18,32 +19,35 @@ function App() {
     setValue(index);
   };
   return (
-    <div className="App">
-      <HeroSection />
-      <Paper className="tabs-container">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          className="tabs-wrapper"
+    <>
+      <div className="App">
+        <HeroSection />
+        <Paper className="tabs-container">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            className="tabs-wrapper"
+          >
+            <Tab label="Past Launches" {...a11yProps(0)} />
+            <Tab label="Upcoming Launches" {...a11yProps(1)} />
+            <Tab label="Rockets" {...a11yProps(2)} />
+          </Tabs>
+        </Paper>
+        <SwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={value}
+          onChangeIndex={handleChangeIndex}
+          className="swipeable-content"
         >
-          <Tab label="Past Launches" {...a11yProps(0)} />
-          <Tab label="Upcoming Launches" {...a11yProps(1)} />
-          <Tab label="Rockets" {...a11yProps(2)} />
-        </Tabs>
-      </Paper>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-        className="swipeable-content"
-      >
-        <LaunchesPastResult value={value} index={0} dir={theme.direction} />
-        <LaunchesUpcomingResult value={value} index={1} dir={theme.direction} />
-        <RocketsResult value={value} index={2} dir={theme.direction} />
-      </SwipeableViews>
-    </div>
+          <LaunchesPastResult value={value} index={0} dir={theme.direction} />
+          <LaunchesUpcomingResult value={value} index={1} dir={theme.direction} />
+          <RocketsResult value={value} index={2} dir={theme.direction} />
+        </SwipeableViews>
+      </div>
+      <Footer />
+    </>
   );
 }
 
