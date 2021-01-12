@@ -45,7 +45,7 @@ const RocketsResultQuery = gql`
 `
 
 export default function RocketsResult(props) {
-  const { loading, error, data } = useQuery(RocketsResultQuery);
+  const { loading, error } = useQuery(RocketsResultQuery);
   const { value, index } = props;
 
   if (loading) return <RocketLoader />;
