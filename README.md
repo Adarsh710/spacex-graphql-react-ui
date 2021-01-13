@@ -1,3 +1,7 @@
+# Get SpaceX Info
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/641d0265-d007-4a67-8ecf-b80916eea1c8/deploy-status)](https://app.netlify.com/sites/get-spacex-info/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
