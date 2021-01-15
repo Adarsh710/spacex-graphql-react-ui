@@ -1,6 +1,7 @@
 import React from 'react'
 import { useQuery, gql } from "@apollo/client";
 import RocketLoader from "../loaders/RocketLoader";
+import RocketCard from '../components/RocketCard/RocketCard'
 
 const RocketsResultQuery = gql`
 {
@@ -45,7 +46,7 @@ const RocketsResultQuery = gql`
 `
 
 export default function RocketsResult(props) {
-  const { loading, error } = useQuery(RocketsResultQuery);
+  const { loading, error, data } = useQuery(RocketsResultQuery);
   const { value, index } = props;
 
   if (loading) return <RocketLoader />;
@@ -53,9 +54,7 @@ export default function RocketsResult(props) {
 
   return (
     <>
-      {value === index && (<div className="rockets-container">
-        Coming soon...
-      </div>)}
+      {value === index && (<RocketCard rockets={data.rocketsResult} />)}
     </>
   );
 }
