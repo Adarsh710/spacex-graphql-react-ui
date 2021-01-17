@@ -1,0 +1,17 @@
+.rocket-list {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.rocket-list li {
+  list-style: none;
+}
+
+.rocket-list li div {
+  margin: 40px 0 10px;
+}
+
+.rocket-list li:first-child div {
+  margin-top: 20px;
+}
