@@ -4,7 +4,7 @@ import './Footer.css'
 function Footer() {
   return (
     <div className="footer">
-      Designed & Made by Adarsh❤️
+      Crafted with <span className="heart">❤</span> by Adarsh
     </div>
   )
 }
